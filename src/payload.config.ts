@@ -23,6 +23,8 @@ import Skills from './collections/Skills'
 import Experience from './collections/Experience'
 import Contact from './collections/Contact'
 import Education from './collections/Education'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import nodemailer from 'nodemailer'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -87,8 +89,10 @@ export default buildConfig({
   globals: [Header, Footer],
   plugins: [
     ...plugins,
+
     // storage-adapter-placeholder
   ],
+
   secret: process.env.PAYLOAD_SECRET,
   sharp,
   typescript: {
@@ -107,6 +111,21 @@ export default buildConfig({
         return authHeader === `Bearer ${process.env.CRON_SECRET}`
       },
     },
+
     tasks: [],
   },
+  email: nodemailerAdapter({
+    defaultFromAddress: 'info@payloadcms.com',
+    defaultFromName: 'Payload',
+    transport: nodemailer.createTransport({
+      service: 'gmail',
+      host: process.env.HOST,
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.EMAIL_USER, // Your email
+        pass: process.env.EMAIL_PASSWORD, // Your email password or app-specific password
+      },
+    }),
+  }),
 })
