@@ -25,6 +25,7 @@ import Contact from './collections/Contact'
 import Education from './collections/Education'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import nodemailer from 'nodemailer'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -89,7 +90,12 @@ export default buildConfig({
   globals: [Header, Footer],
   plugins: [
     ...plugins,
-
+    vercelBlobStorage({
+      collections: {
+        [Media.slug]: true,
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN || '',
+    }),
     // storage-adapter-placeholder
   ],
 
