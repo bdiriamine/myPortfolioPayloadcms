@@ -25,6 +25,37 @@ export const Footer: GlobalConfig = {
         },
       },
     },
+    {
+      name: 'socialLinks',
+      label: 'Social Media Links',
+      type: 'array',
+      maxRows: 5,
+      fields: [
+        {
+          name: 'platform',
+          type: 'text',
+          required: true,
+          admin: {
+            placeholder: 'e.g. Twitter, LinkedIn',
+          },
+        },
+        {
+          name: 'url',
+          type: 'text',
+          required: true,
+          admin: {
+            placeholder: 'https://...',
+          },
+        },
+        {
+          name: 'iconImage',
+          label: 'Social Media Icon',
+          type: 'upload',
+          relationTo: 'media', // change this if your media collection has a different slug
+          required: true,
+        },
+      ],
+    },
   ],
   hooks: {
     afterChange: [revalidateFooter],

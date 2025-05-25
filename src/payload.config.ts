@@ -16,6 +16,13 @@ import { Header } from './Header/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
+import Internships from './collections/Internships'
+import Certifications from './collections/Certifications'
+import Projects from './collections/Projects'
+import Skills from './collections/Skills'
+import Experience from './collections/Experience'
+import Contact from './collections/Contact'
+import Education from './collections/Education'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -62,7 +69,20 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [
+    Pages,
+    Posts,
+    Media,
+    Categories,
+    Users,
+    Experience,
+    Skills,
+    Projects,
+    Certifications,
+    Education,
+    Internships,
+    Contact,
+  ],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [

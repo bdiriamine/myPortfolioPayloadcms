@@ -12,6 +12,15 @@
     font-size: unset;
     font-weight: unset;
   }
+  /* globals.css or your global stylesheet */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 
   :root {
     --background: 0 0% 100%;

@@ -20,6 +20,13 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
+import { ProfileBlock } from '@/blocks/ProfileBlock/config'
+import { SkillsBlock } from '@/blocks/SkillsBlock/config'
+import { ExperienceBlock } from '@/blocks/ExperienceBlock/config'
+import { EducationBlock } from '@/blocks/EducationBlock/config'
+import { InternshipsBlock } from '@/blocks/InternshipsBlock/config'
+import { ProjectBlock } from '@/blocks/ProjectBlock/config'
+import { ContactBlock } from '@/blocks/ContactBlock/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -67,15 +74,24 @@ export const Pages: CollectionConfig<'pages'> = {
       type: 'tabs',
       tabs: [
         {
-          fields: [hero],
-          label: 'Hero',
-        },
-        {
           fields: [
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock],
+              blocks: [
+                CallToAction,
+                Content,
+                MediaBlock,
+                Archive,
+                FormBlock,
+                ProfileBlock,
+                SkillsBlock,
+                ExperienceBlock,
+                EducationBlock,
+                InternshipsBlock,
+                ProjectBlock,
+                ContactBlock,
+              ],
               required: true,
               admin: {
                 initCollapsed: true,
