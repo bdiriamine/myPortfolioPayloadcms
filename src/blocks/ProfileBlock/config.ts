@@ -34,7 +34,6 @@ import { MediaBlock } from '../MediaBlock/config'
 export const ProfileBlock: Block = {
   slug: 'profileBlock',
   interfaceName: 'ProfileBlock',
-  imageURL: '/icons/profile.svg', // Optional: for admin icon
   fields: [
     {
       name: 'image',
