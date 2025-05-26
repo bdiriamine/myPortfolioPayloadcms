@@ -16,7 +16,7 @@ const ProjectDetails: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([])
 
   const fetchProjects = async () => {
-    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/projects?limit=100&featured=true`
+    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/projects?limit=3&featured=true`
     const res = await fetch(url)
     const data = await res.json()
     setProjects(data.docs)
@@ -31,19 +31,14 @@ const ProjectDetails: React.FC = () => {
   }
 
   return (
-    <div className="relative bg-gradient-to-br from-black via-zinc-900 to-purple-900 text-white py-20 px-6 sm:px-12 md:px-20 overflow-hidden">
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-bold text-center mb-16 tracking-tight"
-      >
-        🚀 Featured Projects
-      </motion.h2>
+    <div className="relative bg-gradient-to-br from-black via-zinc-900 to-purple-900 text-white py-16 px-4 sm:px-8 md:px-16 overflow-hidden">
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-8">
+        🚀 Featured <span className="text-purple-500">Projects</span>
+      </h2>
 
       <Swiper
         modules={[Autoplay, Pagination]}
-        spaceBetween={30}
+        spaceBetween={20}
         slidesPerView={1}
         pagination={{ clickable: true }}
         autoplay={{ delay: 5000 }}
@@ -56,48 +51,47 @@ const ProjectDetails: React.FC = () => {
         {projects.map((project) => (
           <SwiperSlide key={project.id}>
             <motion.div
-              className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl hover:shadow-purple-700/40 transition-shadow duration-300 overflow-hidden h-full flex flex-col transform hover:scale-[1.02]"
+              className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-md hover:shadow-purple-600/40 transition-shadow duration-300 overflow-hidden h-full flex flex-col transform hover:scale-[1.01]"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="relative h-56 w-full">
-                {project.imageProject && (
-                  <Image
-                    src={getImageUrl(project.imageProject, '')}
-                    alt={project.name}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-t-2xl transition-transform duration-300 hover:scale-105"
-                  />
-                )}
+              <div className="relative w-full aspect-[4/3] overflow-hidden">
+                <Image
+                  src={getImageUrl(project.imageProject, '')}
+                  alt={project.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 20vw, 15vw"
+                  className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                  priority
+                />
               </div>
 
-              <div className="p-6 flex-1 flex flex-col justify-between">
+              <div className="p-4 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-2xl font-bold mb-2 text-white">{project.name}</h3>
-                  <div className="text-sm text-gray-300 mb-4 line-clamp-3">
+                  <h3 className="text-lg font-semibold mb-1 text-white truncate">{project.name}</h3>
+                  <div className="text-xs text-gray-300 mb-2 line-clamp-3">
                     <RichText data={project.description} />
                   </div>
                 </div>
 
-                <div className="mt-4 flex gap-3">
+                <div className="mt-2 flex gap-2 flex-wrap">
                   {project.demoUrl && (
                     <Link
                       href={project.demoUrl}
                       target="_blank"
-                      className="text-sm px-4 py-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-400 hover:from-emerald-500 hover:to-green-500 transition font-medium shadow-md shadow-green-500/30"
+                      className="text-xs px-3 py-1 rounded-full bg-green-500 hover:bg-green-600 transition font-medium shadow-md shadow-green-400/30"
                     >
-                      🌐 Live Demo
+                      🌐 Demo
                     </Link>
                   )}
                   {project.sourceUrl && (
                     <Link
                       href={project.sourceUrl}
                       target="_blank"
-                      className="text-sm px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-indigo-500 hover:to-blue-600 transition font-medium shadow-md shadow-blue-500/30"
+                      className="text-xs px-3 py-1 rounded-full bg-blue-500 hover:bg-blue-600 transition font-medium shadow-md shadow-blue-400/30"
                     >
-                      💻 Source Code
+                      💻 Code
                     </Link>
                   )}
                 </div>
