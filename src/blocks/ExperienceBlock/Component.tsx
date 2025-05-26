@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Experience as Props, Skill } from '@/payload-types'
+import { Media, Experience as Props, Skill } from '@/payload-types'
 import RichText from '@/components/RichText'
 
 type Experience = {
@@ -15,6 +15,8 @@ type Experience = {
   current?: boolean
   description: any
   skills: Skill[]
+  attestationOfWork?: string | Media
+  contract?: string | Media
 }
 
 const ExperienceBlock: React.FC<Props> = () => {
@@ -103,6 +105,33 @@ const ExperienceBlock: React.FC<Props> = () => {
                     ))}
                   </div>
                 )}
+                {(exp.attestationOfWork || exp.contract) &&
+                  typeof exp.attestationOfWork !== 'string' &&
+                  typeof exp.contract !== 'string' && (
+                    <div className="mt-4 space-y-2 text-sm">
+                      {exp.attestationOfWork?.url && (
+                        <a
+                          href={exp.attestationOfWork.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-purple-400 underline hover:text-purple-200 block"
+                        >
+                          📄 View Attestation of Work
+                        </a>
+                      )}
+
+                      {exp.contract?.url && (
+                        <a
+                          href={exp.contract.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-purple-400 underline hover:text-purple-200 block"
+                        >
+                          📄 View Work Contract
+                        </a>
+                      )}
+                    </div>
+                  )}
               </motion.div>
             )
           })}

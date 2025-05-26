@@ -17,13 +17,12 @@ const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   const pathname = usePathname()
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experiences', href: '#experiences' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Internship', href: '#internship' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: 'home' },
+    { name: 'Projects', href: 'projects' },
+    { name: 'Experiences', href: 'experiences' },
+    { name: 'Skills', href: 'skills' },
+    { name: 'Internship', href: 'internship' },
+    { name: 'Contact', href: 'contact' },
   ]
 
   useEffect(() => {

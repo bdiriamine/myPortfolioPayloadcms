@@ -7,6 +7,7 @@ import { ProfileBlock as ProfileBlockProps } from '@/payload-types'
 import { getImageUrl } from '@/utilities/functon'
 import RichText from '@/components/RichText'
 
+// This component displays a user's profile block with animation and styled details
 const ProfileBlock: React.FC<ProfileBlockProps> = ({
   image,
   name,
@@ -27,9 +28,12 @@ const ProfileBlock: React.FC<ProfileBlockProps> = ({
       transition={{ duration: 1 }}
       className="relative bg-gradient-to-br from-black via-zinc-900 to-purple-900 text-white py-20 px-6 sm:px-12 md:px-20 overflow-hidden"
     >
+      {/* Decorative purple blurred background circle */}
       <div className="absolute -top-20 -left-20 w-[300px] h-[300px] bg-purple-700 opacity-30 rounded-full blur-3xl z-0 pointer-events-none" />
 
+      {/* Profile content */}
       <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center md:items-start max-w-6xl mx-auto">
+        {/* Profile image with animation */}
         <motion.div
           initial={{ scale: 0.9, rotate: -2 }}
           animate={{ scale: 1, rotate: 0 }}
@@ -45,6 +49,7 @@ const ProfileBlock: React.FC<ProfileBlockProps> = ({
           />
         </motion.div>
 
+        {/* Textual information */}
         <div className="space-y-6 text-center md:text-left w-full">
           <div>
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
@@ -55,6 +60,7 @@ const ProfileBlock: React.FC<ProfileBlockProps> = ({
             <p className="text-purple-200 text-lg mt-1">Full Stack Developer</p>
           </div>
 
+          {/* Personal details */}
           <div className="flex flex-wrap justify-center md:justify-start gap-3 text-sm text-white/80">
             <span className="bg-white/10 px-3 py-1.5 rounded-full border border-white/20">
               📞 {phone}
@@ -69,7 +75,7 @@ const ProfileBlock: React.FC<ProfileBlockProps> = ({
               🛂 Passport: {passport ? 'Yes ✅' : 'No ❌'}
             </span>
             <span className="bg-white/10 px-3 py-1.5 rounded-full border border-white/20">
-              🚗 Permis: {permis ? 'Yes ✅' : 'No ❌'}
+              🚗 Driving License: {permis ? 'Yes ✅' : 'No ❌'}
             </span>
             <span
               className={`px-3 py-1.5 rounded-full border ${
@@ -82,6 +88,7 @@ const ProfileBlock: React.FC<ProfileBlockProps> = ({
             </span>
           </div>
 
+          {/* Rich text content */}
           <RichText data={content} className="prose prose-invert max-w-none text-gray-300" />
         </div>
       </div>

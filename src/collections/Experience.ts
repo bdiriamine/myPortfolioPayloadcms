@@ -52,6 +52,20 @@ const Experience: CollectionConfig = {
       relationTo: 'skills',
       hasMany: true,
     },
+    {
+      name: 'attestationOfWork',
+      label: 'Attestation of Work',
+      type: 'upload',
+      relationTo: 'media',
+      required: false,
+    },
+    {
+      name: 'contract',
+      label: 'Work Contract',
+      type: 'upload',
+      relationTo: 'media',
+      required: false,
+    },
   ],
 }
 

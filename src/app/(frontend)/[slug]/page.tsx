@@ -12,6 +12,8 @@ import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
+import Image from 'next/image'
+import { getImageUrl } from '@/utilities/functon'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -63,7 +65,7 @@ export default async function Page({ params: paramsPromise }: Args) {
     return <PayloadRedirects url={url} />
   }
 
-  const { layout } = page
+  const { layout, heroImage } = page
 
   return (
     <article className=" pb-24">
@@ -72,6 +74,15 @@ export default async function Page({ params: paramsPromise }: Args) {
       <PayloadRedirects disableNotFound url={url} />
 
       {draft && <LivePreviewListener />}
+      {heroImage && (
+        <div className="w-full mb-8">
+          <Image
+            src={getImageUrl(heroImage, '')}
+            alt="slider"
+            className="w-full h-auto object-cover"
+          />
+        </div>
+      )}
 
       {/* <RenderHero {...hero} /> */}
       <RenderBlocks blocks={layout} />

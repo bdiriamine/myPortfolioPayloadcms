@@ -71,6 +71,17 @@ export const Pages: CollectionConfig<'pages'> = {
       required: true,
     },
     {
+      name: 'heroImage',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+      admin: {
+        condition: (data) => {
+          return data?.title !== 'home'
+        },
+      },
+    },
+    {
       type: 'tabs',
       tabs: [
         {
