@@ -16,7 +16,7 @@ const ProjectDetails: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([])
 
   const fetchProjects = async () => {
-    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/projects?limit=3&featured=true`
+    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/projects?limit=100&featured=true`
     const res = await fetch(url)
     const data = await res.json()
     setProjects(data.docs)
