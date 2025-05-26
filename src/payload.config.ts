@@ -86,7 +86,12 @@ export default buildConfig({
     Internships,
     Contact,
   ],
-  cors: [getServerSideURL()].filter(Boolean),
+  // cors: [getServerSideURL()].filter(Boolean),
+  cors: [
+    'https://my-portfolio-payloadcms-git-main-mohamed-amine-bdiris-projects.vercel.app',
+    'https://my-portfolio-payloadcms.vercel.app', // optional: allow your own domain too
+  ],
+  csrf: ['https://my-portfolio-payloadcms-git-main-mohamed-amine-bdiris-projects.vercel.app'],
   globals: [Header, Footer],
   plugins: [
     ...plugins,

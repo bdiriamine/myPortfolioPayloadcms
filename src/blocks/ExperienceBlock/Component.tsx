@@ -22,7 +22,7 @@ const ExperienceBlock: React.FC<Props> = () => {
   const [expandedIds, setExpandedIds] = useState<string[]>([])
 
   const fetchExperiences = async () => {
-    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/experience?limit=20`
+    const url = `https://my-portfolio-payloadcms.vercel.app/api/experience?limit=20`
     const res = await fetch(url)
     const data = await res.json()
     setExperiences(data.docs)
