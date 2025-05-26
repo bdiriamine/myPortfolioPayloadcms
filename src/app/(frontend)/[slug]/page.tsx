@@ -68,14 +68,14 @@ export default async function Page({ params: paramsPromise }: Args) {
   const { layout, heroImage } = page
 
   return (
-    <article className=" pb-24">
+    <article className=" ">
       <PageClient />
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 
       {draft && <LivePreviewListener />}
       {heroImage && (
-        <div className="w-full mb-8">
+        <div className="w-full ">
           <Image
             src={getImageUrl(heroImage, '')}
             alt="slider"
