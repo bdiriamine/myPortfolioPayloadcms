@@ -79,7 +79,7 @@ export default async function Page({ params: paramsPromise }: Args) {
           <Image
             src={getImageUrl(heroImage, '')}
             alt="slider"
-            className="w-full h-auto md:h-[200px] object-cover"
+            className="w-full h-auto md:h-[400px] object-cover"
           />
         </div>
       )}

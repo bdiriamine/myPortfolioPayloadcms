@@ -60,6 +60,11 @@ export async function Footer() {
             ))}
           </nav>
         </div>
+        <footer className="bg-black text-white text-center py-4">
+          <p className="text-sm">
+            &copy; {new Date().getFullYear()} Mohamed Amine Bdiri. All rights reserved.
+          </p>
+        </footer>
       </div>
     </footer>
   )
