@@ -55,7 +55,10 @@ const ContactBlock: React.FC<ContactBlockProps> = ({ title, description, submitB
     <section className="py-20 bg-gradient-to-br from-gray-950 to-gray-900 text-white">
       <div className="container mx-auto px-6">
         <div className="mb-12 text-center">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">{title}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-16">
+            📧 <span className="text-purple-500">{title}</span>
+          </h2>
+          {/* <h2 className="text-4xl md:text-5xl font-extrabold mb-4">{title}</h2> */}
           <p className="text-lg md:text-xl text-gray-400">{description}</p>
         </div>
 
@@ -121,7 +124,7 @@ const ContactBlock: React.FC<ContactBlockProps> = ({ title, description, submitB
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-yellow-500 hover:bg-yellow-600 text-black font-bold text-lg rounded-xl transition-all duration-300"
+                  className="w-full py-4  bg-purple-500 hover:bg-pink-600 text-black font-bold text-lg rounded-xl transition-all duration-300"
                   disabled={loading}
                 >
                   {loading ? 'Sending...' : submitButtonLabel}
