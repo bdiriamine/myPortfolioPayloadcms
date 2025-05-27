@@ -718,6 +718,7 @@ export interface Form {
  */
 export interface ProfileBlock {
   image: string | Media;
+  profile: string;
   name: string;
   phone?: string | null;
   age?: number | null;
@@ -725,6 +726,13 @@ export interface ProfileBlock {
   passport?: boolean | null;
   permis?: boolean | null;
   disponibilite?: boolean | null;
+  language?:
+    | {
+        name: string;
+        level: 'beginner' | 'intermediate' | 'advanced' | 'native';
+        id?: string | null;
+      }[]
+    | null;
   content: {
     root: {
       type: string;
@@ -1468,6 +1476,7 @@ export interface FormBlockSelect<T extends boolean = true> {
  */
 export interface ProfileBlockSelect<T extends boolean = true> {
   image?: T;
+  profile?: T;
   name?: T;
   phone?: T;
   age?: T;
@@ -1475,6 +1484,13 @@ export interface ProfileBlockSelect<T extends boolean = true> {
   passport?: T;
   permis?: T;
   disponibilite?: T;
+  language?:
+    | T
+    | {
+        name?: T;
+        level?: T;
+        id?: T;
+      };
   content?: T;
   enableLink?: T;
   link?:

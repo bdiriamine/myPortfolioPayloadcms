@@ -8,7 +8,7 @@ import { getImageUrl } from '@/utilities/functon'
 import RichText from '@/components/RichText'
 
 interface Language {
-  language: string
+  name: string
   level: 'beginner' | 'intermediate' | 'advanced' | 'native'
 }
 const ProfileBlock: React.FC<ProfileBlockProps> = ({
@@ -87,7 +87,7 @@ const ProfileBlock: React.FC<ProfileBlockProps> = ({
                 key={index}
                 className="bg-white/10 px-3 py-1.5 rounded-full border border-white/20 flex items-center gap-1"
               >
-                🌍 {lang.language} - <span className="capitalize">{lang.level}</span>
+                🌍 {lang.name} - <span className="capitalize">{lang.level}</span>
               </span>
             ))}
             <span
