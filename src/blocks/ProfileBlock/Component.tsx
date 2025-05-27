@@ -7,7 +7,10 @@ import { ProfileBlock as ProfileBlockProps } from '@/payload-types'
 import { getImageUrl } from '@/utilities/functon'
 import RichText from '@/components/RichText'
 
-// This component displays a user's profile block with animation and styled details
+interface Language {
+  language: string
+  level: 'beginner' | 'intermediate' | 'advanced' | 'native'
+}
 const ProfileBlock: React.FC<ProfileBlockProps> = ({
   image,
   name,
@@ -18,6 +21,8 @@ const ProfileBlock: React.FC<ProfileBlockProps> = ({
   passport,
   permis,
   disponibilite,
+  profile,
+  language,
 }) => {
   const imgUrl = getImageUrl(image, '')
 
@@ -57,7 +62,7 @@ const ProfileBlock: React.FC<ProfileBlockProps> = ({
                 {name}
               </span>
             </h1>
-            <p className="text-purple-200 text-lg mt-1">Full Stack Developer</p>
+            <p className="text-purple-200 text-lg mt-1">{profile}</p>
           </div>
 
           {/* Personal details */}
@@ -77,6 +82,14 @@ const ProfileBlock: React.FC<ProfileBlockProps> = ({
             <span className="bg-white/10 px-3 py-1.5 rounded-full border border-white/20">
               🚗 Driving License: {permis ? 'Yes ✅' : 'No ❌'}
             </span>
+            {language?.map((lang: Language, index: number) => (
+              <span
+                key={index}
+                className="bg-white/10 px-3 py-1.5 rounded-full border border-white/20 flex items-center gap-1"
+              >
+                🌍 {lang.language} - <span className="capitalize">{lang.level}</span>
+              </span>
+            ))}
             <span
               className={`px-3 py-1.5 rounded-full border ${
                 disponibilite

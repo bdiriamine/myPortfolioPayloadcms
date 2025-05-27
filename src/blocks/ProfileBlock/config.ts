@@ -42,6 +42,11 @@ export const ProfileBlock: Block = {
       required: true,
     },
     {
+      name: 'profile',
+      type: 'text',
+      required: true,
+    },
+    {
       name: 'name',
       type: 'text',
       required: true,
@@ -73,7 +78,31 @@ export const ProfileBlock: Block = {
       type: 'checkbox',
       label: 'are you Available to work?',
     },
-
+    {
+      name: 'language',
+      type: 'array',
+      label: 'Languages',
+      fields: [
+        {
+          name: 'name',
+          type: 'text',
+          label: 'Language Name',
+          required: true,
+        },
+        {
+          name: 'level',
+          type: 'select',
+          label: 'Proficiency Level',
+          options: [
+            { label: 'Beginner', value: 'beginner' },
+            { label: 'Intermediate', value: 'intermediate' },
+            { label: 'Advanced', value: 'advanced' },
+            { label: 'Native', value: 'native' },
+          ],
+          required: true,
+        },
+      ],
+    },
     {
       name: 'content',
       type: 'richText',
