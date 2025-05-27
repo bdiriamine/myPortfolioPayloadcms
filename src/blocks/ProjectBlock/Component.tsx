@@ -66,7 +66,18 @@ const ProjectDetails: React.FC = () => {
                   priority
                 />
               </div>
-
+              <div className="mt-3 flex gap-2 flex-wrap">
+                {project.projectType && (
+                  <span className="inline-flex items-center gap-1 px-3 py-1 text-xs rounded-full bg-purple-600/30 text-purple-200 font-medium shadow shadow-purple-800/30">
+                    💻 {project.projectType}
+                  </span>
+                )}
+                {project.status && (
+                  <span className="inline-flex items-center gap-1 px-3 py-1 text-xs rounded-full bg-green-600/30 text-green-200 font-medium shadow shadow-green-800/30">
+                    ✅ {project.status}
+                  </span>
+                )}
+              </div>
               <div className="p-4 flex-1 flex flex-col justify-between">
                 <div>
                   <h3 className="text-lg font-semibold mb-1 text-white truncate">{project.name}</h3>
