@@ -87,10 +87,20 @@ const ExperienceBlock: React.FC<Props> = () => {
                     isExpanded ? '' : 'line-clamp-5'
                   }`}
                 >
-                  <RichText
+                  <div className="mt-4 relative z-10 bg-white/10 p-4 rounded-md text-sm text-gray-100 max-h-40 overflow-auto hide-scrollbar">
+                    {exp.description ? (
+                      <RichText
+                        data={exp.description}
+                        className="prose prose-invert max-w-none text-gray-300"
+                      />
+                    ) : (
+                      <em>No description provided.</em>
+                    )}
+                  </div>
+                  {/* <RichText
                     data={exp.description}
                     className="prose prose-invert max-w-none text-gray-300"
-                  />
+                  /> */}
                 </div>
 
                 {exp.skills?.length > 0 && (

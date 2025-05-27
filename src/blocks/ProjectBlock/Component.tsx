@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -14,6 +13,7 @@ import RichText from '@/components/RichText'
 
 const ProjectDetails: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([])
+  const [expandedIds, setExpandedIds] = useState<string[]>([]) // Track expanded cards
 
   const fetchProjects = async () => {
     const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/projects?limit=100&featured=true`
@@ -25,6 +25,12 @@ const ProjectDetails: React.FC = () => {
   useEffect(() => {
     fetchProjects()
   }, [])
+
+  const toggleExpand = (id: string) => {
+    setExpandedIds((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
+    )
+  }
 
   if (!projects || projects.length === 0) {
     return <div className="text-center text-gray-400">Loading...</div>
@@ -48,68 +54,95 @@ const ProjectDetails: React.FC = () => {
         }}
         className="w-full"
       >
-        {projects.map((project) => (
-          <SwiperSlide key={project.id}>
-            <motion.div
-              className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-md hover:shadow-purple-600/40 transition-shadow duration-300 overflow-hidden h-full flex flex-col transform hover:scale-[1.01]"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="relative w-full aspect-[4/3] overflow-hidden">
-                <Image
-                  src={getImageUrl(project.imageProject, '')}
-                  alt={project.name}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 20vw, 15vw"
-                  className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
-                  priority
-                />
-              </div>
-              <div className="mt-3 flex gap-2 flex-wrap">
-                {project.projectType && (
-                  <span className="inline-flex items-center gap-1 px-3 py-1 text-xs rounded-full bg-purple-600/30 text-purple-200 font-medium shadow shadow-purple-800/30">
-                    💻 {project.projectType}
-                  </span>
-                )}
-                {project.status && (
-                  <span className="inline-flex items-center gap-1 px-3 py-1 text-xs rounded-full bg-green-600/30 text-green-200 font-medium shadow shadow-green-800/30">
-                    ✅ {project.status}
-                  </span>
-                )}
-              </div>
-              <div className="p-4 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-lg font-semibold mb-1 text-white truncate">{project.name}</h3>
-                  <div className="text-xs text-gray-300 mb-2 line-clamp-3">
-                    <RichText data={project.description} />
+        {projects.map((project) => {
+          const isExpanded = expandedIds.includes(project.id)
+
+          return (
+            <SwiperSlide key={project.id}>
+              <motion.div
+                className="relative bg-gradient-to-br from-gray-900/80 to-black/80 rounded-xl overflow-hidden shadow-xl hover:shadow-purple-700/70 transition-transform duration-300 hover:scale-105 cursor-default flex flex-col"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                {/* Image with overlay */}
+                <div className="relative w-full aspect-[4/3]">
+                  <Image
+                    src={getImageUrl(project.imageProject, '')}
+                    alt={project.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 20vw, 15vw"
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-75" />
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <h3 className="text-xl font-bold drop-shadow-md">{project.name}</h3>
+                    <div className="flex gap-2 mt-1">
+                      {project.projectType && (
+                        <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-purple-700/80 text-purple-200 font-semibold shadow-lg shadow-purple-900/50 text-xs">
+                          💻 {project.projectType}
+                        </span>
+                      )}
+                      {project.status && (
+                        <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-green-700/80 text-green-200 font-semibold shadow-lg shadow-green-900/50 text-xs">
+                          ✅ {project.status}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
 
-                <div className="mt-2 flex gap-2 flex-wrap">
-                  {project.demoUrl && (
-                    <Link
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-xs px-3 py-1 rounded-full bg-green-500 hover:bg-green-600 transition font-medium shadow-md shadow-green-400/30"
+                {/* Content Section */}
+                <div className="p-5 flex flex-col flex-grow">
+                  <div className="text-gray-300 text-sm mb-3 relative">
+                    <div
+                      className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                        isExpanded ? 'max-h-[1000px]' : 'max-h-[4.5rem]' /* ~3 lines */
+                      }`}
                     >
-                      🌐 Demo
-                    </Link>
-                  )}
-                  {project.sourceUrl && (
-                    <Link
-                      href={project.sourceUrl}
-                      target="_blank"
-                      className="text-xs px-3 py-1 rounded-full bg-blue-500 hover:bg-blue-600 transition font-medium shadow-md shadow-blue-400/30"
-                    >
-                      💻 Code
-                    </Link>
-                  )}
+                      <RichText data={project.description} />
+                    </div>
+                    {!isExpanded && (
+                      <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none" />
+                    )}
+                  </div>
+
+                  <button
+                    onClick={() => toggleExpand(project.id)}
+                    className="self-start text-xs font-semibold text-purple-400 hover:text-purple-600 transition"
+                    aria-label={isExpanded ? 'Read less' : 'Read more'}
+                  >
+                    {isExpanded ? 'Read Less ▲' : 'Read More ▼'}
+                  </button>
+
+                  <div className="mt-auto flex gap-3 flex-wrap pt-4">
+                    {project.demoUrl && (
+                      <Link
+                        href={project.demoUrl}
+                        target="_blank"
+                        className="px-4 py-1 bg-green-600 hover:bg-green-700 rounded-full text-white text-xs font-semibold shadow-md shadow-green-500/50 transition"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        🌐 Demo
+                      </Link>
+                    )}
+                    {project.sourceUrl && (
+                      <Link
+                        href={project.sourceUrl}
+                        target="_blank"
+                        className="px-4 py-1 bg-blue-600 hover:bg-blue-700 rounded-full text-white text-xs font-semibold shadow-md shadow-blue-500/50 transition"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        💻 Code
+                      </Link>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          </SwiperSlide>
-        ))}
+              </motion.div>
+            </SwiperSlide>
+          )
+        })}
       </Swiper>
     </div>
   )
