@@ -14,6 +14,7 @@ import EducationBlock from './EducationBlock/Component'
 import InternshipsBlock from './InternshipsBlock/Component'
 import ProjectBlock from './ProjectBlock/Component'
 import ContactBlock from './ContactBlock/Component'
+import CertificationsBlock from './CertificationBlock/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -28,6 +29,7 @@ const blockComponents = {
   InternshipsBlock: InternshipsBlock,
   ProjectBlock: ProjectBlock,
   ContactBlock: ContactBlock,
+  CertificationsBlock: CertificationsBlock,
 }
 
 export const RenderBlocks: React.FC<{

@@ -99,7 +99,6 @@ const SkillsBlock = () => {
       </div>
 
       <div className="relative max-w-6xl mx-auto">
-        {/* Pagination Buttons */}
         <button
           onClick={handlePrev}
           aria-label="Previous"

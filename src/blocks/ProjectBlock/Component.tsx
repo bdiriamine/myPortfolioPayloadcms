@@ -17,7 +17,7 @@ export interface Skill {
 
 const ProjectDetails: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([])
-  const [expandedIds, setExpandedIds] = useState<string[]>([]) // Track expanded cards
+  const [expandedIds, setExpandedIds] = useState<string[]>([])
 
   const fetchProjects = async () => {
     const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/projects?limit=100&featured=true`
@@ -69,7 +69,6 @@ const ProjectDetails: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                {/* Image with overlay */}
                 <div className="relative w-full aspect-[4/3]">
                   <Image
                     src={getImageUrl(project.imageProject, '')}
@@ -97,7 +96,6 @@ const ProjectDetails: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Content Section */}
                 <div className="p-5 flex flex-col flex-grow">
                   <div className="text-gray-300 text-sm mb-3 relative">
                     <div
@@ -145,7 +143,6 @@ const ProjectDetails: React.FC = () => {
                   {project.skills && project.skills.length > 0 && (
                     <div className="mt-4 flex flex-wrap gap-2">
                       {project.skills.map((skill, index) => {
-                        // skill can be string (id) or Skill object
                         const skillName = typeof skill === 'string' ? skill : skill.name
 
                         return (

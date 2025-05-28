@@ -27,6 +27,7 @@ import { EducationBlock } from '@/blocks/EducationBlock/config'
 import { InternshipsBlock } from '@/blocks/InternshipsBlock/config'
 import { ProjectBlock } from '@/blocks/ProjectBlock/config'
 import { ContactBlock } from '@/blocks/ContactBlock/config'
+import { CertificationsBlock } from '@/blocks/CertificationBlock/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -102,6 +103,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 InternshipsBlock,
                 ProjectBlock,
                 ContactBlock,
+                CertificationsBlock,
               ],
               required: true,
               admin: {
