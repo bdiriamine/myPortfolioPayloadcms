@@ -43,9 +43,6 @@ const CertificationsBlock = () => {
       transition={{ duration: 1 }}
       className="relative bg-gradient-to-br from-zinc-950 via-black to-purple-900 py-20 px-6 sm:px-12 md:px-20 text-white"
     >
-      {/* Decorative Background Glow */}
-      <div className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-purple-700 opacity-30 rounded-full blur-3xl z-0" />
-
       <div className="relative z-10 max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
           🎓 My <span className="text-purple-500">Certifications</span>
