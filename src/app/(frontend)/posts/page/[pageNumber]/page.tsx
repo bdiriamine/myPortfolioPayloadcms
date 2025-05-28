@@ -65,7 +65,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
   const { pageNumber } = await paramsPromise
   return {
-    title: `Payload Website Template Posts Page ${pageNumber || ''}`,
+    title: `Mohamed Amine bdiri Portfolio Full stack js , Angular , React , Next Js ,Ionic , payload cms , genie logiciel , software engineer  Posts Page ${pageNumber || ''}`,
   }
 }
 

@@ -9,8 +9,9 @@ const defaultOpenGraph: Metadata['openGraph'] = {
       url: `${getServerSideURL()}/website-template-OG.webp`,
     },
   ],
-  siteName: 'Payload Website Template',
-  title: 'Payload Website Template',
+  siteName:
+    'Développeur full-stack JavaScript passionné en React, Angular, Node.js , Payload cms  et Next.js, avec expertise en électronique, électrotechnique et automatisation industrielle. Découvrez mes projets web et systèmes embarqués.',
+  title: 'Mohamed Amine bdiri Portfolio Full stack js',
 }
 
 export const mergeOpenGraph = (og?: Metadata['openGraph']): Metadata['openGraph'] => {

@@ -83,6 +83,6 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
 
 export function generateMetadata(): Metadata {
   return {
-    title: `Payload Website Template Search`,
+    title: `Mohamed Amine bdiri Portfolio Full stack js , Angular , React , Next Js ,Ionic , payload cms , genie logiciel , software engineer  Search`,
   }
 }

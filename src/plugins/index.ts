@@ -15,7 +15,9 @@ import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
-  return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
+  return doc?.title
+    ? `${doc.title} | Mohamed Amine bdiri Portfolio Full stack js , Angular , React , Next Js ,Ionic , payload cms , genie logiciel , software engineer `
+    : 'Mohamed Amine bdiri Portfolio Full stack js , Angular , React , Next Js ,Ionic , payload cms , genie logiciel , software engineer '
 }
 
 const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
@@ -35,7 +37,8 @@ export const plugins: Plugin[] = [
             return {
               ...field,
               admin: {
-                description: 'You will need to rebuild the website when changing this field.',
+                description:
+                  'Mohamed Amine bdiri Portfolio Full stack js , Angular , React , Next Js ,Ionic , payload cms , genie logiciel , software engineer .',
               },
             }
           }
