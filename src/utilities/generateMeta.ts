@@ -25,15 +25,17 @@ export const generateMeta = async (args: {
   const { doc } = args
 
   const ogImage = getImageURL(doc?.meta?.image)
+  const defaultDescription =
+    'Développeur full-stack JavaScript passionné en React, Node.js et Next.js,Angular, avec expertise en électronique, électrotechnique et automatisation industrielle. Découvrez mes projets web et systèmes embarqués.'
 
   const title = doc?.meta?.title
-    ? doc?.meta?.title + ' | Payload Website Template'
-    : 'Payload Website Template'
+    ? doc?.meta?.title + ' | Portfolio Développeur JS'
+    : 'Portfolio Développeur Full-Stack JS & Technicien Électronique'
 
   return {
-    description: doc?.meta?.description,
+    description: doc?.meta?.description || defaultDescription,
     openGraph: mergeOpenGraph({
-      description: doc?.meta?.description || '',
+      description: doc?.meta?.description || defaultDescription,
       images: ogImage
         ? [
             {

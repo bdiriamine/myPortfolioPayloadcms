@@ -176,6 +176,7 @@ export interface Page {
     | InternshipsBlock
     | ProjectBlock
     | ContactBlock
+    | CertificationsBlock
   )[];
   meta?: {
     title?: string | null;
@@ -831,6 +832,15 @@ export interface ContactBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CertificationsBlock".
+ */
+export interface CertificationsBlock {
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'CertificationsBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "experience".
  */
 export interface Experience {
@@ -1371,6 +1381,7 @@ export interface PagesSelect<T extends boolean = true> {
         InternshipsBlock?: T | InternshipsBlockSelect<T>;
         ProjectBlock?: T | ProjectBlockSelect<T>;
         ContactBlock?: T | ContactBlockSelect<T>;
+        CertificationsBlock?: T | CertificationsBlockSelect<T>;
       };
   meta?:
     | T
@@ -1554,6 +1565,14 @@ export interface ContactBlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   submitButtonLabel?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CertificationsBlock_select".
+ */
+export interface CertificationsBlockSelect<T extends boolean = true> {
   id?: T;
   blockName?: T;
 }
