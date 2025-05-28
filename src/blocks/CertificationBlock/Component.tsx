@@ -45,7 +45,6 @@ const CertificationsBlock = () => {
     >
       {/* Decorative Background Glow */}
       <div className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-purple-700 opacity-30 rounded-full blur-3xl z-0" />
-      <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-indigo-600 opacity-20 rounded-full blur-2xl z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
