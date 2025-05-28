@@ -12,7 +12,7 @@ const categories = [
   { label: 'Library', value: 'library' },
   { label: 'Framework', value: 'framework' },
   { label: 'Tool', value: 'tool' },
-  { label: 'Language', value: 'language' },
+  { label: 'Electronics', value: 'electronics' },
   { label: 'Soft Skill', value: 'soft' },
   { label: 'Other', value: 'other' },
 ]

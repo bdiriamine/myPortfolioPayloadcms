@@ -10,6 +10,10 @@ import { Project } from '@/payload-types'
 import { motion } from 'framer-motion'
 import { getImageUrl } from '@/utilities/functon'
 import RichText from '@/components/RichText'
+export interface Skill {
+  name: string
+  slug?: string
+}
 
 const ProjectDetails: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([])
@@ -138,6 +142,37 @@ const ProjectDetails: React.FC = () => {
                       </Link>
                     )}
                   </div>
+                  {project.skills && project.skills.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {project.skills.map((skill, index) => {
+                        // skill can be string (id) or Skill object
+                        const skillName = typeof skill === 'string' ? skill : skill.name
+
+                        return (
+                          <span
+                            key={index}
+                            className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-purple-700/90 text-purple-100 text-xs font-semibold shadow-md shadow-purple-900/40"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="h-4 w-4 text-purple-300"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              strokeWidth={2}
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                              />
+                            </svg>
+                            {skillName}
+                          </span>
+                        )
+                      })}
+                    </div>
+                  )}
                 </div>
               </motion.div>
             </SwiperSlide>

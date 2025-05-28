@@ -46,8 +46,8 @@ const Skills: CollectionConfig = {
           value: 'tool',
         },
         {
-          label: 'Language',
-          value: 'language',
+          label: 'Electronics',
+          value: 'electronics',
         },
         {
           label: 'Soft Skill',

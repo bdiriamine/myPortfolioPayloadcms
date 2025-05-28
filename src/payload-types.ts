@@ -870,7 +870,7 @@ export interface Skill {
   id: string;
   name: string;
   description?: string | null;
-  category: 'programming' | 'library' | 'framework' | 'tool' | 'language' | 'soft' | 'other';
+  category: 'programming' | 'library' | 'framework' | 'tool' | 'electronics' | 'soft' | 'other';
   proficiency?: ('beginner' | 'intermediate' | 'advanced' | 'expert') | null;
   icon?: (string | null) | Media;
   yearsOfExperience?: number | null;
