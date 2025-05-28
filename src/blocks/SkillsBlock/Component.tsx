@@ -25,7 +25,7 @@ const SkillsBlock = () => {
 
   // Fetch all skills once
   const fetchSkills = async () => {
-    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/skills?limit=20`
+    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/skills?limit=100`
     const res = await fetch(url)
     const data = await res.json()
     setSkills(data.docs)
