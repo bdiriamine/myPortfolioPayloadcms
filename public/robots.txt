@@ -1,0 +1,12 @@
+# *
+User-agent: *
+Disallow: /admin/*
+
+# Host
+Host: https://example.com
+
+# Sitemaps
+
+Sitemap: https://my-portfolio-payloadcms.vercel.app/sitemap.xml
+Sitemap: https://my-portfolio-payloadcms.vercel.app/pages-sitemap.xml
+Sitemap: https://my-portfolio-payloadcms.vercel.app/posts-sitemap.xml
