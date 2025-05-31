@@ -1083,7 +1083,7 @@ export interface Contact {
 export interface Redirect {
   id: string;
   /**
-   * You will need to rebuild the website when changing this field.
+   * Mohamed Amine bdiri Portfolio Full stack js , Angular , React , Next Js ,Ionic , payload cms , genie logiciel , software engineer .
    */
   from: string;
   to?: {

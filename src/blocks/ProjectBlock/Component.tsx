@@ -70,12 +70,19 @@ const ProjectDetails: React.FC = () => {
                 transition={{ duration: 0.6 }}
               >
                 <div className="relative w-full aspect-[4/3]">
-                  <Image
+                  {/* <Image
                     src={getImageUrl(project.imageProject, '')}
                     alt={project.name}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 20vw, 15vw"
                     className="object-cover"
+                    priority
+                  /> */}
+                  <Image
+                    src={getImageUrl(project.imageProject, '')}
+                    alt={project.name}
+                    fill
+                    className="object-contain"
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-75" />
