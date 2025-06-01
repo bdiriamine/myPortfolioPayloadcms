@@ -70,6 +70,16 @@ const Projects: CollectionConfig = {
       },
     },
     {
+      name: 'priority',
+      type: 'number',
+      label: 'Priority',
+      required: false,
+      defaultValue: false,
+      admin: {
+        description: 'Higher values indicate higher display priority',
+      },
+    },
+    {
       name: 'experience',
       type: 'relationship',
       relationTo: 'experience',

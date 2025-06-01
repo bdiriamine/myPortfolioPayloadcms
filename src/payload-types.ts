@@ -917,6 +917,10 @@ export interface Project {
    */
   skills?: (string | Skill)[] | null;
   /**
+   * Higher values indicate higher display priority
+   */
+  priority?: number | null;
+  /**
    * Related professional experience (if applicable)
    */
   experience?: (string | null) | Experience;
@@ -1779,6 +1783,7 @@ export interface ProjectsSelect<T extends boolean = true> {
   startDate?: T;
   endDate?: T;
   skills?: T;
+  priority?: T;
   experience?: T;
   projectType?: T;
   imageProject?: T;

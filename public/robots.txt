@@ -1,11 +1,12 @@
-# Allow all crawlers
+# *
 User-agent: *
-Disallow: /admin/
+Disallow: /admin/*
 
-# Optional: Set your preferred domain (Host directive is non-standard and ignored by Google, so it's optional)
-# Host: https://my-portfolio-payloadcms.vercel.app
+# Host
+Host: https://example.com
 
-# Valid Sitemap URLs
-https://my-portfolio-payloadcms.vercel.app/sitemap.xml
-https://my-portfolio-payloadcms.vercel.app/pages-sitemap.xml
-https://my-portfolio-payloadcms.vercel.app/posts-sitemap.xml
+# Sitemaps
+
+Sitemap: https://my-portfolio-payloadcms.vercel.app/sitemap.xml
+Sitemap: https://my-portfolio-payloadcms.vercel.app/pages-sitemap.xml
+Sitemap: https://my-portfolio-payloadcms.vercel.app/posts-sitemap.xml

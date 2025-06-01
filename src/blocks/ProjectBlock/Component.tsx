@@ -23,7 +23,14 @@ const ProjectDetails: React.FC = () => {
     const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/projects?limit=100&featured=true`
     const res = await fetch(url)
     const data = await res.json()
-    setProjects(data.docs)
+
+    const sorted = data.docs.sort((a: Project, b: Project) => {
+      const priorityA = a.priority ?? 0
+      const priorityB = b.priority ?? 0
+      return priorityB - priorityA
+    })
+
+    setProjects(sorted)
   }
 
   useEffect(() => {
