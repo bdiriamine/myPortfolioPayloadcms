@@ -6,6 +6,6 @@ Disallow: /admin/
 # Host: https://my-portfolio-payloadcms.vercel.app
 
 # Valid Sitemap URLs
-Sitemap: https://my-portfolio-payloadcms.vercel.app/sitemap.xml
-Sitemap: https://my-portfolio-payloadcms.vercel.app/pages-sitemap.xml
-Sitemap: https://my-portfolio-payloadcms.vercel.app/posts-sitemap.xml
+https://my-portfolio-payloadcms.vercel.app/sitemap.xml
+https://my-portfolio-payloadcms.vercel.app/pages-sitemap.xml
+https://my-portfolio-payloadcms.vercel.app/posts-sitemap.xml
