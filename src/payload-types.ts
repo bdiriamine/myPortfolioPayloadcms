@@ -826,6 +826,12 @@ export interface ContactBlock {
   title: string;
   description: string;
   submitButtonLabel?: string | null;
+  contactInfo: {
+    icon: string | Media;
+    label: string;
+    link: string;
+    id?: string | null;
+  }[];
   id?: string | null;
   blockName?: string | null;
   blockType: 'ContactBlock';
@@ -1569,6 +1575,14 @@ export interface ContactBlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   submitButtonLabel?: T;
+  contactInfo?:
+    | T
+    | {
+        icon?: T;
+        label?: T;
+        link?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
