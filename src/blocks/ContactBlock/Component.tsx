@@ -92,7 +92,7 @@ const ContactBlock: React.FC<props> = ({ title, description, submitButtonLabel, 
 
                     <Link
                       href={item.link}
-                      className="text-lg font-semibold text-white hover:text-purple-400 transition"
+                      className="text-lg font-semibold text-white hover:text-purple-400 transition break-words text-center w-full"
                     >
                       {item.label}
                     </Link>
