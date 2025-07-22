@@ -75,7 +75,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 
       {draft && <LivePreviewListener />}
       {heroImage && (
-        <div className="w-full pt-0 sm:pt-10">
+        <div className="w-full pt-11 ">
           <Image
             src={getImageUrl(heroImage, '')}
             alt="slider"
