@@ -886,7 +886,21 @@ export interface Skill {
   id: string;
   name: string;
   description?: string | null;
-  category: 'programming' | 'library' | 'framework' | 'tool' | 'electronics' | 'soft' | 'other';
+  category:
+    | 'programming'
+    | 'frontend'
+    | 'backend'
+    | 'library'
+    | 'database'
+    | 'devops'
+    | 'testing'
+    | 'tool'
+    | 'version-control'
+    | 'design'
+    | 'cms'
+    | 'soft'
+    | 'electronics'
+    | 'other';
   proficiency?: ('beginner' | 'intermediate' | 'advanced' | 'expert') | null;
   icon?: (string | null) | Media;
   yearsOfExperience?: number | null;

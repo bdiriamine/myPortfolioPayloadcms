@@ -11,7 +11,6 @@ const categories = [
   { label: 'Programming Language', value: 'programming' },
   { label: 'Frontend', value: 'frontend' },
   { label: 'Backend', value: 'backend' },
-  { label: 'Library', value: 'library' },
   { label: 'Database', value: 'database' },
   { label: 'DevOps / Deployment', value: 'devops' },
   { label: 'Testing', value: 'testing' },
@@ -85,25 +84,43 @@ const SkillsBlock = () => {
   return (
     <section className="w-full px-4 sm:px-6 md:px-10 py-16 bg-zinc-950">
       <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-8">
-        💼 My <span className="text-purple-500">Skills</span>
+        💼 My <span className="text-purple-500">Skills</span> 
       </h2>
 
       {/* Category Buttons */}
-      <div className="flex flex-wrap justify-center gap-4 mb-12">
-        {categories.map((cat) => (
-          <button
-            key={cat.value}
-            onClick={() => setSelectedCategory(cat.value)}
-            className={`px-4 py-2 rounded-full font-semibold transition-colors duration-300 ${
-              selectedCategory === cat.value
-                ? 'bg-purple-600 text-white'
-                : 'bg-zinc-800 text-zinc-400 hover:bg-purple-500 hover:text-white'
-            }`}
-          >
-            {cat.label}
-          </button>
-        ))}
-      </div>
+<div className="relative max-w-6xl mx-auto mb-12 px-2">
+  <div
+    className={`
+      md:overflow-visible
+      overflow-x-auto
+      no-scrollbar
+      max-w-full
+      md:max-w-none
+      h-[7.5rem]
+      sm:h-auto
+    `}
+  >
+    <div
+      className="flex flex-wrap gap-4 min-w-max md:min-w-0"
+      style={{ rowGap: '0.5rem' }}
+    >
+      {categories.map((cat) => (
+        <button
+          key={cat.value}
+          onClick={() => setSelectedCategory(cat.value)}
+          className={`px-4 py-2 rounded-full font-semibold transition-colors duration-300 ${
+            selectedCategory === cat.value
+              ? 'bg-purple-600 text-white'
+              : 'bg-zinc-800 text-zinc-400 hover:bg-purple-500 hover:text-white'
+          }`}
+        >
+          {cat.label}
+        </button>
+      ))}
+    </div>
+  </div>
+</div>
+
 
       <div className="relative max-w-6xl mx-auto">
         <button
