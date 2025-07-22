@@ -9,8 +9,8 @@ import { Skill } from '@/payload-types'
 const categories = [
   { label: 'All', value: '' },
   { label: 'Programming Language', value: 'programming' },
-  { label: 'Frontend Framework', value: 'frontend-framework' },
-  { label: 'Backend Framework', value: 'backend-framework' },
+  { label: 'Frontend', value: 'frontend' },
+  { label: 'Backend', value: 'backend' },
   { label: 'Library', value: 'library' },
   { label: 'Database', value: 'database' },
   { label: 'DevOps / Deployment', value: 'devops' },
