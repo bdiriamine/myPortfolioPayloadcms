@@ -9,11 +9,18 @@ import { Skill } from '@/payload-types'
 const categories = [
   { label: 'All', value: '' },
   { label: 'Programming Language', value: 'programming' },
+  { label: 'Frontend Framework', value: 'frontend-framework' },
+  { label: 'Backend Framework', value: 'backend-framework' },
   { label: 'Library', value: 'library' },
-  { label: 'Framework', value: 'framework' },
-  { label: 'Tool', value: 'tool' },
-  { label: 'Electronics', value: 'electronics' },
+  { label: 'Database', value: 'database' },
+  { label: 'DevOps / Deployment', value: 'devops' },
+  { label: 'Testing', value: 'testing' },
+  { label: 'Tooling', value: 'tool' },
+  { label: 'Version Control', value: 'version-control' },
+  { label: 'Design / UI', value: 'design' },
+  { label: 'CMS / Headless CMS', value: 'cms' },
   { label: 'Soft Skill', value: 'soft' },
+  { label: 'Electronics / Hardware', value: 'electronics' },
   { label: 'Other', value: 'other' },
 ]
 
